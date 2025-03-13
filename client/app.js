@@ -15,13 +15,16 @@ async function sendChatRequest(event) {
   const userPrompt = event.target.promptInput.value;
   console.log("the prompt is:", userPrompt);
 
-  const response = await fetch("http://localhost:8080/chat", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ userPrompt }),
-  });
+  const response = await fetch(
+    "https://server-week-06-api-project.onrender.com/chat",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userPrompt }),
+    }
+  );
 
   // Getting data back from the server
   const data = await response.json();
